@@ -29,19 +29,23 @@ will both crash with the message
 
 	ERROR: cannot recover from previous errors
 
-or a "ch.exe has stopped working" Windows dialog box. It is nondeterministic
-which error will occur on my computer, and other Windows machines may exhibit
-different symptoms (e.g., an unhandled exception with the message "a heap has
-been corrupted"). When ```script.cpp``` is compiled to an executable using a
-C++ compiler, the code executes correctly.
+or a "ch.exe has stopped working" Windows dialog box. It appears
+nondeterministic which error will occur on any given computer, and other
+Windows machines may exhibit different symptoms (e.g., an unhandled exception
+with the message "a heap has been corrupted"). When ```script.cpp``` is
+compiled to an executable using a C++ compiler, the code executes correctly.
 
-The crash occurs when libsampclass.dl is compiled with Microsoft Visual Studio
-2013 Community Edition and with MinGW gcc 4.9.1, as distributed by the Qt
-project. No other compilers have been tested.
+Commenting out the ```Ch_CppChangeThisPointer``` line in
+```sampclass_chdl.cpp``` causes the first crash (array on the stack) not to
+occur, but has no effect on the second crash (array on the free store/heap).
 
 The test code is taken from the Ch SDK User's Guide, section 7.5, listings 1,
 2, 3, 5, and 6. The unmodified code exhibits the problem exactly as described
 above; however, the code presented here has been reduced for clarity.
+
+The crash occurs when libsampclass.dl is compiled with Microsoft Visual Studio
+2013 Community Edition and with MinGW gcc 4.9.1, as distributed by the Qt
+project. No other compilers have been tested.
 
 ## Building the Test Code with CMake
 
@@ -83,3 +87,9 @@ execute
 Ch should crash or die with the message
 
 	ERROR: cannot recover from previous errors
+
+## Dr. Memory Results
+
+The results of Ch Standard 32-bit running ```script.cpp``` under Dr. Memory can
+be found in the file ```drmemory-results-vs2013-32bit.txt```. In this case,
+```libsampclass.dl``` was compiled using Visual Studio 2013.

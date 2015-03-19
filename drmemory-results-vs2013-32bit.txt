@@ -1,0 +1,72 @@
+Dr. Memory version 1.8.1 build 0 built on Feb 17 2015 19:08:31
+Dr. Memory results for pid 21512: "ch.exe"
+Application cmdline: "c:\ch\bin\ch.exe script.cpp"
+Recorded 108 suppression(s) from default C:\Program Files (x86)\Dr. Memory\bin\suppress-default.txt
+
+WARNING: application is missing line number information.
+
+Error #1: UNINITIALIZED READ: reading 0x0268ffc0-0x0268ffc2 2 byte(s)
+# 0 ch.dll!Ch_VaEnd_kernel       +0xadf8   (0x10033458 <ch.dll+0x33458>)
+# 1 ch.dll!initExecution         +0xc9d    (0x1000727e <ch.dll+0x727e>)
+Note: @0:00:03.828 in thread 13448
+Note: instruction: data16 cmp    %ax 0x18(%ecx)
+
+Error #2: INVALID HEAP ARGUMENT to free 0x01ebc958
+# 0 replace_free                       [d:\drmemory_package\common\alloc_replace.c:2507]
+# 1 ch.dll!ChCurtdbForSignalptr       +0x30b71  (0x100d51b2 <ch.dll+0xd51b2>)
+# 2 ch.dll!killEntry                  +0xd0d    (0x1000214e <ch.dll+0x214e>)
+# 3 ch.dll!strToArgcArgv              +0x2590   (0x100213a1 <ch.dll+0x213a1>)
+Note: @0:00:05.031 in thread 13448
+Note: refers to -1 byte(s) before next malloc
+Note: next higher malloc: 0x01ebc958-0x01ebc95c
+Note: refers to -4 byte(s) beyond last valid byte in prior malloc
+Note: prev lower malloc:  0x01ebc958-0x01ebc95c
+
+Error #3: INVALID HEAP ARGUMENT to free 0x01ebc9a8
+# 0 replace_free                              [d:\drmemory_package\common\alloc_replace.c:2507]
+# 1 ch.dll!ChCurtdbForSignalptr_kernel       +0x72f    (0x100448e0 <ch.dll+0x448e0>)
+# 2 ch.dll!ChCurtdbForSignalptr_kernel       +0xc97f   (0x10050b30 <ch.dll+0x50b30>)
+# 3 ch.dll!killEntry                         +0xb81    (0x10001fc2 <ch.dll+0x1fc2>)
+# 4 ch.dll!strToArgcArgv                     +0x2590   (0x100213a1 <ch.dll+0x213a1>)
+Note: @0:00:05.031 in thread 13448
+Note: refers to -1 byte(s) before next malloc
+Note: next higher malloc: 0x01ebc9a8-0x01ebc9ac
+Note: refers to -4 byte(s) beyond last valid byte in prior malloc
+Note: prev lower malloc:  0x01ebc9a8-0x01ebc9ac
+
+Error #4: LEAK 4 direct bytes 0x01ebb910-0x01ebb914 + 0 indirect bytes
+# 0 replace_operator_new_nomatch               [d:\drmemory_package\common\alloc_replace.c:2736]
+# 1 libsampclass.dl!Class1_Class1_chdl        +0xc      (0x5bff108d <libsampclass.dl+0x108d>)
+# 2 ch.dll!Ch_VaFuncArgNum_kernel             +0x18cf   (0x10010b70 <ch.dll+0x10b70>)
+# 3 ch.dll!ChCurtdbForSignalptr               +0x502a7  (0x100f48e8 <ch.dll+0xf48e8>)
+# 4 ch.dll!ChCurtdbForSignalptr_kernel        +0x6366   (0x1004a517 <ch.dll+0x4a517>)
+# 5 ch.dll!killEntry                          +0xb81    (0x10001fc2 <ch.dll+0x1fc2>)
+# 6 ch.dll!strToArgcArgv                      +0x2590   (0x100213a1 <ch.dll+0x213a1>)
+
+===========================================================================
+FINAL SUMMARY:
+
+DUPLICATE ERROR COUNTS:
+	Error #   2:      2
+	Error #   3:      2
+	Error #   4:      4
+
+SUPPRESSIONS USED:
+
+ERRORS FOUND:
+      0 unique,     0 total unaddressable access(es)
+      1 unique,     1 total uninitialized access(es)
+      2 unique,     4 total invalid heap argument(s)
+      0 unique,     0 total GDI usage error(s)
+      0 unique,     0 total handle leak(s)
+      0 unique,     0 total warning(s)
+      1 unique,     4 total,     16 byte(s) of leak(s)
+      0 unique,     0 total,      0 byte(s) of possible leak(s)
+ERRORS IGNORED:
+      8 potential error(s) (suspected false positives)
+         (details: C:\Users\Harris\AppData\Roaming\Dr. Memory\DrMemory-ch.exe.21512.000\potential_errors.txt)
+     66 potential leak(s) (suspected false positives)
+         (details: C:\Users\Harris\AppData\Roaming\Dr. Memory\DrMemory-ch.exe.21512.000\potential_errors.txt)
+      3 unique,     3 total,    596 byte(s) of still-reachable allocation(s)
+         (re-run with "-show_reachable" for details)
+Details: C:\Users\Harris\AppData\Roaming\Dr. Memory\DrMemory-ch.exe.21512.000\results.txt
