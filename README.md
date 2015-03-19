@@ -2,7 +2,7 @@
 
 This project illustrates a possible bug in Ch.
 
-### Systems Affected
+## Systems Affected
 
 * Lenovo Yoga 14 - Windows 8.1 64-bit, running:
     * Ch Standard Edition 7.0.0.15221 32-bit
@@ -43,13 +43,13 @@ The test code is taken from the Ch SDK User's Guide, section 7.5, listings 1,
 2, 3, 5, and 6. The unmodified code exhibits the problem exactly as described
 above; however, the code presented here has been reduced for clarity.
 
-### Building the Test Code with CMake
+## Building the Test Code with CMake
 
 The original Makefile from the Ch SDK User's Guide (section 7.1, listing 4) is
 included, but I was unable to get it to work, and wrote a CMake script instead.
 It requires CMake version 2.8.12 or higher.
 
-#### Visual Studio 2013
+### Visual Studio 2013
 
 To build using Visual Studio 2013, open a VS2013 developer shell, navigate to
 this git repository, and execute
@@ -61,7 +61,7 @@ this git repository, and execute
 	copy Release\libsampclass.dl ..
 	cd ..
 
-#### MinGW
+### MinGW
 
 To build using MinGW, open a shell with MinGW on the path, navigate to this git
 repository, and execute
@@ -72,3 +72,14 @@ repository, and execute
 	cmake --build .
 	copy libsampclass.dl ..
 	cd ..
+
+## Running the Test Code
+
+To run, open a shell with Ch on the path, navigate to this git repository, and
+execute
+
+	ch script.cpp
+
+Ch should crash or die with the message
+
+	ERROR: cannot recover from previous errors
