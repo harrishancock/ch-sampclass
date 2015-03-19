@@ -12,6 +12,13 @@ This project illustrates a possible bug in Ch.
 
 Linux does not appear to be affected. Mac has not been tested.
 
+The crash occurs when the test code in this repository is compiled with
+Microsoft Visual Studio 2013 Community Edition and with MinGW gcc 4.9.1, as
+distributed by the Qt project.
+
+When the test code is compiled with Microsoft Visual Studio 2008, the crash
+reportedly does NOT occur.
+
 ### Description
 
 When instantiating an array of objects implemented in C++ per the Ch SDK User's
@@ -42,10 +49,6 @@ occur, but has no effect on the second crash (array on the free store/heap).
 The test code is taken from the Ch SDK User's Guide, section 7.5, listings 1,
 2, 3, 5, and 6. The unmodified code exhibits the problem exactly as described
 above; however, the code presented here has been reduced for clarity.
-
-The crash occurs when libsampclass.dl is compiled with Microsoft Visual Studio
-2013 Community Edition and with MinGW gcc 4.9.1, as distributed by the Qt
-project. No other compilers have been tested.
 
 ## Building the Test Code with CMake
 
