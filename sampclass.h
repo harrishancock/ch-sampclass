@@ -23,18 +23,10 @@ public:
 	int memfun1(int i);
 };
 
-class Class2 {
-public:
-	Class2();
-	~Class2();
-	void memfun1(class Class1 *pc);
-	class Class1 *memfun2(int i);
-	class Class1 *memfun3(int i, class Class1 **ppc);
-	int memfun4(class Class1 *apc[NUM]);
-	int memfun5(int num, class Class1 c[NUM]);
-};
 #pragma importf <sampclass.chf>
+
 #else /************************* for C++ space ******************/
+
 class Class1 {
 private:
 	int m_i1;
@@ -44,18 +36,6 @@ public:
 	int memfun1(int i);
 };
 
-class Class2 {
-private:
-	int m_i2;
-public:
-	Class2();
-	~Class2();
-	void memfun1(class Class1 *pc);
-	class Class1 *memfun2(int i);
-	class Class1 *memfun3(int i, class Class1 **ppc);
-	int memfun4(class Class1 *apc[NUM]);
-	int memfun5(int num, class Class1 c[NUM]);
-};
 #endif
 
 #endif /* _SAMPCLASS_H_ */
